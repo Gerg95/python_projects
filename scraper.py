@@ -47,22 +47,26 @@ def get_job(url):
   desc = soup.find('div', {'class' : 'description'}) 
   desc = desc.text.strip()
 
-  job = {
+  job = [{
   "company" : company,
   "title" : title,
   "location" : location,
   "salary" : salary,
   "employment_type" : employment_type,
   "job_description" : desc,
-  }
+  }]
 
   print(job)
 
-  return
+  jobs = []
 
-def export_data(job):
-  data = tablib.dataset()
-  data.json = json.dumps(results)
+  jobs.append(job)
+
+  return job
+
+def export_data(jobs):
+  data = tablib.Dataset()
+  data.json = json.dumps(jobs)
 
   filename = 'reed_data.csv'
 
@@ -90,13 +94,13 @@ def get_website(url):
   return
 
 def main(url):
-  job = get_job(url)
-  export_data(job)
+  get_website(url)
+  export_data(jobs)
 
   return
 
 if __name__ == '__main__':
-  main('https://www.reed.co.uk/jobs/sales-representative/34848957?source=searchResults#/jobs/howdens-joinery-31154/p31154')
+  #main('https://www.reed.co.uk/jobs/sales-representative/34848957?source=searchResults#/jobs/howdens-joinery-31154/p31154')
   # main(sys.argv[1])
-  #main('https://www.reed.co.uk/jobs/jobs-in-london?keywords=Sales')
+  main('https://www.reed.co.uk/jobs/jobs-in-london?keywords=Sales')
 

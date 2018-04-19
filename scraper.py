@@ -31,6 +31,7 @@ def get_job(url):
   soup = get_soup(url)
   # EX :
 
+
   company = soup.find('span' ,{'itemprop' : 'name'}).text.strip()
 
   title = soup.find('h1').text.strip()
@@ -56,15 +57,13 @@ def get_job(url):
   "job_description" : desc,
   }
 
-  print(job)
+ 
 
-  jobs = []
-
-  jobs.append(job)
-
-  return jobs
+  return job
 
 def export_data(jobs):
+  jobs = []
+  jobs.append(job)
   data = tablib.Dataset()
   data.json = json.dumps(jobs)
 

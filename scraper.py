@@ -56,11 +56,13 @@ def get_job(url):
   "job_description" : desc,
   }
 
+  print(job)
+
   jobs = []
 
   jobs.append(job)
 
-  return job
+  return jobs
 
 def export_data(jobs):
   data = tablib.Dataset()

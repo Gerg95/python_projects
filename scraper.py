@@ -55,14 +55,13 @@ def get_job(url):
   "job_description" : desc,
   }
 
-def export_data(data):
-  results = get_job(job)
+def export_data(job):
   data = tablib.dataset()
   data.json = json.dumps(results)
 
   filename = 'reed_data.csv'
 
-  csv_file = open(base_path+'exports/'+ filename, 'w')
+  csv_file = open(filename, 'w')
 
   csv_file.write(data.csv)
 
@@ -86,7 +85,9 @@ def get_website(url):
   return
 
 def main(url):
-  get_website(url)
+  job = get_job(url)
+  export_data(job)
+
   return
 
 if __name__ == '__main__':

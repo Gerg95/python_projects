@@ -54,17 +54,16 @@ def get_job(url):
   "employment_type" : employment_type,
   "job_description" : desc,
   }
-def export_data():
+def export_data(data):
   results = job
   data = tablib.dataset()
   data.json = json.dumps(results)
 
-  filename = reed_data.csv
+  filename = 'reed_data.csv'
 
-  csv_file = open(base_path+'exports/'+filename, 'w')
+  csv_file = open(base_path+'exports/'+ filename, 'w')
 
-
-  print(data)
+  csv_file.write(data.csv)
 
   return
 

@@ -54,8 +54,9 @@ def get_job(url):
   "employment_type" : employment_type,
   "job_description" : desc,
   }
+
 def export_data(data):
-  results = job
+  results = get_job(job)
   data = tablib.dataset()
   data.json = json.dumps(results)
 

@@ -47,16 +47,14 @@ def get_job(url):
   desc = soup.find('div', {'class' : 'description'}) 
   desc = desc.text.strip()
 
-  job = [{
+  job = {
   "company" : company,
   "title" : title,
   "location" : location,
   "salary" : salary,
   "employment_type" : employment_type,
   "job_description" : desc,
-  }]
-
-  print(job)
+  }
 
   jobs = []
 
